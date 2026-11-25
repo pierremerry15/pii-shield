@@ -1,0 +1,1024 @@
+{
+  "test": {
+    "original": {
+      "recall": 0.5,
+      "precision": 0.7111111111111111,
+      "f1": 0.5871559633027522,
+      "clean_rate": 0.5666666666666667,
+      "by_type": {
+        "EMAIL": {
+          "gold": 7,
+          "protected": 7,
+          "partial": 0,
+          "leaked": 0
+        },
+        "PHONE": {
+          "gold": 15,
+          "protected": 4,
+          "partial": 7,
+          "leaked": 4
+        },
+        "SSN": {
+          "gold": 4,
+          "protected": 4,
+          "partial": 0,
+          "leaked": 0
+        },
+        "CARD": {
+          "gold": 5,
+          "protected": 0,
+          "partial": 0,
+          "leaked": 5
+        },
+        "ADDRESS": {
+          "gold": 11,
+          "protected": 6,
+          "partial": 4,
+          "leaked": 1
+        }
+      },
+      "negatives": 30,
+      "negatives_clean": 17,
+      "failures": [
+        {
+          "line_no": 10,
+          "kind": "leaked",
+          "detail": "PHONE '(555) 201-3344'"
+        },
+        {
+          "line_no": 12,
+          "kind": "leaked",
+          "detail": "PHONE '+1 (555) 410-2288'"
+        },
+        {
+          "line_no": 13,
+          "kind": "leaked",
+          "detail": "PHONE '555 777 1212'"
+        },
+        {
+          "line_no": 14,
+          "kind": "partial",
+          "detail": "PHONE '(555)640-1122'"
+        },
+        {
+          "line_no": 16,
+          "kind": "partial",
+          "detail": "PHONE '+44 20 7946 0123'"
+        },
+        {
+          "line_no": 17,
+          "kind": "partial",
+          "detail": "PHONE '+33 1 42 68 53 00'"
+        },
+        {
+          "line_no": 18,
+          "kind": "partial",
+          "detail": "PHONE '+49 30 901820'"
+        },
+        {
+          "line_no": 19,
+          "kind": "partial",
+          "detail": "PHONE '+91 98765 43210'"
+        },
+        {
+          "line_no": 20,
+          "kind": "partial",
+          "detail": "PHONE '+234 803 555 0199'"
+        },
+        {
+          "line_no": 21,
+          "kind": "partial",
+          "detail": "PHONE '+1 555 222 9090'"
+        },
+        {
+          "line_no": 28,
+          "kind": "leaked",
+          "detail": "CARD '4111 1111 1111 1111'"
+        },
+        {
+          "line_no": 29,
+          "kind": "leaked",
+          "detail": "CARD '5555-5555-5555-4444'"
+        },
+        {
+          "line_no": 30,
+          "kind": "leaked",
+          "detail": "CARD '3782 822463 10005'"
+        },
+        {
+          "line_no": 31,
+          "kind": "leaked",
+          "detail": "CARD '6011111111111117'"
+        },
+        {
+          "line_no": 32,
+          "kind": "partial",
+          "detail": "ADDRESS '1600 Pennsylvania Avenue NW'"
+        },
+        {
+          "line_no": 34,
+          "kind": "partial",
+          "detail": "ADDRESS '2400 Sixth St NW'"
+        },
+        {
+          "line_no": 35,
+          "kind": "partial",
+          "detail": "ADDRESS '350 Fifth Avenue, Suite 4200'"
+        },
+        {
+          "line_no": 38,
+          "kind": "leaked",
+          "detail": "ADDRESS '9 W 42nd St'"
+        },
+        {
+          "line_no": 40,
+          "kind": "partial",
+          "detail": "ADDRESS '88 Oak Court, Apt 3B'"
+        },
+        {
+          "line_no": 42,
+          "kind": "leaked",
+          "detail": "PHONE '(555) 908-1100'"
+        },
+        {
+          "line_no": 44,
+          "kind": "leaked",
+          "detail": "CARD '4012 8888 8888 1881'"
+        },
+        {
+          "line_no": 45,
+          "kind": "false_positive",
+          "detail": "'12 engineers on the Way of Code project'"
+        },
+        {
+          "line_no": 46,
+          "kind": "false_positive",
+          "detail": "'5 marathons and like to run'"
+        },
+        {
+          "line_no": 47,
+          "kind": "false_positive",
+          "detail": "'3 teams that ship a park view'"
+        },
+        {
+          "line_no": 48,
+          "kind": "false_positive",
+          "detail": "'2 features to the Court'"
+        },
+        {
+          "line_no": 49,
+          "kind": "false_positive",
+          "detail": "'4 years of experience on the Drive'"
+        },
+        {
+          "line_no": 50,
+          "kind": "false_positive",
+          "detail": "'30 interns at the Point'"
+        },
+        {
+          "line_no": 51,
+          "kind": "false_positive",
+          "detail": "'8 students in the Summit'"
+        },
+        {
+          "line_no": 52,
+          "kind": "false_positive",
+          "detail": "'3 dashboards for the Pl'"
+        },
+        {
+          "line_no": 53,
+          "kind": "false_positive",
+          "detail": "'11 after'"
+        },
+        {
+          "line_no": 60,
+          "kind": "false_positive",
+          "detail": "'34 on the ACT'"
+        },
+        {
+          "line_no": 62,
+          "kind": "false_positive",
+          "detail": "'3000 request'"
+        },
+        {
+          "line_no": 72,
+          "kind": "false_positive",
+          "detail": "'555 of the handbook covers park'"
+        },
+        {
+          "line_no": 74,
+          "kind": "false_positive",
+          "detail": "'1 Infinite Loop Ventures as an inter'"
+        }
+      ]
+    },
+    "pr98": {
+      "recall": 0.6428571428571429,
+      "precision": 0.8043478260869565,
+      "f1": 0.7145922746781117,
+      "clean_rate": 0.7,
+      "by_type": {
+        "EMAIL": {
+          "gold": 7,
+          "protected": 7,
+          "partial": 0,
+          "leaked": 0
+        },
+        "PHONE": {
+          "gold": 15,
+          "protected": 10,
+          "partial": 5,
+          "leaked": 0
+        },
+        "SSN": {
+          "gold": 4,
+          "protected": 4,
+          "partial": 0,
+          "leaked": 0
+        },
+        "CARD": {
+          "gold": 5,
+          "protected": 0,
+          "partial": 0,
+          "leaked": 5
+        },
+        "ADDRESS": {
+          "gold": 11,
+          "protected": 6,
+          "partial": 4,
+          "leaked": 1
+        }
+      },
+      "negatives": 30,
+      "negatives_clean": 21,
+      "failures": [
+        {
+          "line_no": 16,
+          "kind": "partial",
+          "detail": "PHONE '+44 20 7946 0123'"
+        },
+        {
+          "line_no": 17,
+          "kind": "partial",
+          "detail": "PHONE '+33 1 42 68 53 00'"
+        },
+        {
+          "line_no": 18,
+          "kind": "partial",
+          "detail": "PHONE '+49 30 901820'"
+        },
+        {
+          "line_no": 19,
+          "kind": "partial",
+          "detail": "PHONE '+91 98765 43210'"
+        },
+        {
+          "line_no": 20,
+          "kind": "partial",
+          "detail": "PHONE '+234 803 555 0199'"
+        },
+        {
+          "line_no": 28,
+          "kind": "leaked",
+          "detail": "CARD '4111 1111 1111 1111'"
+        },
+        {
+          "line_no": 29,
+          "kind": "leaked",
+          "detail": "CARD '5555-5555-5555-4444'"
+        },
+        {
+          "line_no": 30,
+          "kind": "leaked",
+          "detail": "CARD '3782 822463 10005'"
+        },
+        {
+          "line_no": 31,
+          "kind": "leaked",
+          "detail": "CARD '6011111111111117'"
+        },
+        {
+          "line_no": 32,
+          "kind": "partial",
+          "detail": "ADDRESS '1600 Pennsylvania Avenue NW'"
+        },
+        {
+          "line_no": 34,
+          "kind": "partial",
+          "detail": "ADDRESS '2400 Sixth St NW'"
+        },
+        {
+          "line_no": 35,
+          "kind": "partial",
+          "detail": "ADDRESS '350 Fifth Avenue, Suite 4200'"
+        },
+        {
+          "line_no": 38,
+          "kind": "leaked",
+          "detail": "ADDRESS '9 W 42nd St'"
+        },
+        {
+          "line_no": 40,
+          "kind": "partial",
+          "detail": "ADDRESS '88 Oak Court, Apt 3B'"
+        },
+        {
+          "line_no": 44,
+          "kind": "leaked",
+          "detail": "CARD '4012 8888 8888 1881'"
+        },
+        {
+          "line_no": 45,
+          "kind": "false_positive",
+          "detail": "'12 engineers on the Way'"
+        },
+        {
+          "line_no": 46,
+          "kind": "false_positive",
+          "detail": "'5 marathons and like to run'"
+        },
+        {
+          "line_no": 47,
+          "kind": "false_positive",
+          "detail": "'3 teams that ship a park view'"
+        },
+        {
+          "line_no": 48,
+          "kind": "false_positive",
+          "detail": "'2 features to the Court'"
+        },
+        {
+          "line_no": 49,
+          "kind": "false_positive",
+          "detail": "'4 years of experience on the Drive'"
+        },
+        {
+          "line_no": 50,
+          "kind": "false_positive",
+          "detail": "'30 interns at the Point'"
+        },
+        {
+          "line_no": 51,
+          "kind": "false_positive",
+          "detail": "'8 students in the Summit'"
+        },
+        {
+          "line_no": 52,
+          "kind": "false_positive",
+          "detail": "'3 dashboards for the Plaza'"
+        },
+        {
+          "line_no": 62,
+          "kind": "false_positive",
+          "detail": "'100 200 3000'"
+        }
+      ]
+    },
+    "v2": {
+      "recall": 1.0,
+      "precision": 1.0,
+      "f1": 1.0,
+      "clean_rate": 1.0,
+      "by_type": {
+        "EMAIL": {
+          "gold": 7,
+          "protected": 7,
+          "partial": 0,
+          "leaked": 0
+        },
+        "PHONE": {
+          "gold": 15,
+          "protected": 15,
+          "partial": 0,
+          "leaked": 0
+        },
+        "SSN": {
+          "gold": 4,
+          "protected": 4,
+          "partial": 0,
+          "leaked": 0
+        },
+        "CARD": {
+          "gold": 5,
+          "protected": 5,
+          "partial": 0,
+          "leaked": 0
+        },
+        "ADDRESS": {
+          "gold": 11,
+          "protected": 11,
+          "partial": 0,
+          "leaked": 0
+        }
+      },
+      "negatives": 30,
+      "negatives_clean": 30,
+      "failures": []
+    }
+  },
+  "dev": {
+    "original": {
+      "recall": 0.4883720930232558,
+      "precision": 0.7894736842105263,
+      "f1": 0.603448275862069,
+      "clean_rate": 0.6923076923076923,
+      "by_type": {
+        "EMAIL": {
+          "gold": 6,
+          "protected": 6,
+          "partial": 0,
+          "leaked": 0
+        },
+        "PHONE": {
+          "gold": 20,
+          "protected": 6,
+          "partial": 5,
+          "leaked": 9
+        },
+        "SSN": {
+          "gold": 3,
+          "protected": 3,
+          "partial": 0,
+          "leaked": 0
+        },
+        "CARD": {
+          "gold": 4,
+          "protected": 0,
+          "partial": 1,
+          "leaked": 3
+        },
+        "ADDRESS": {
+          "gold": 10,
+          "protected": 6,
+          "partial": 3,
+          "leaked": 1
+        }
+      },
+      "negatives": 26,
+      "negatives_clean": 18,
+      "failures": [
+        {
+          "line_no": 6,
+          "kind": "leaked",
+          "detail": "PHONE '(555) 123-4567'"
+        },
+        {
+          "line_no": 11,
+          "kind": "leaked",
+          "detail": "PHONE '+1 555 123 4567'"
+        },
+        {
+          "line_no": 12,
+          "kind": "leaked",
+          "detail": "PHONE '+1 (555) 123-4567'"
+        },
+        {
+          "line_no": 13,
+          "kind": "leaked",
+          "detail": "PHONE '555 123 4567'"
+        },
+        {
+          "line_no": 14,
+          "kind": "partial",
+          "detail": "PHONE '(555)123-4567'"
+        },
+        {
+          "line_no": 15,
+          "kind": "leaked",
+          "detail": "PHONE '(555) 123-4567'"
+        },
+        {
+          "line_no": 16,
+          "kind": "leaked",
+          "detail": "PHONE '(555) 123-4567'"
+        },
+        {
+          "line_no": 17,
+          "kind": "leaked",
+          "detail": "PHONE '(555) 123-4567'"
+        },
+        {
+          "line_no": 17,
+          "kind": "leaked",
+          "detail": "PHONE '+1 555 987 6543'"
+        },
+        {
+          "line_no": 18,
+          "kind": "partial",
+          "detail": "PHONE '+44 20 7946 0958'"
+        },
+        {
+          "line_no": 19,
+          "kind": "partial",
+          "detail": "PHONE '+81 3-1234-5678'"
+        },
+        {
+          "line_no": 20,
+          "kind": "partial",
+          "detail": "PHONE '+52 55 1234 5678'"
+        },
+        {
+          "line_no": 21,
+          "kind": "partial",
+          "detail": "PHONE '+234 1 555 0100'"
+        },
+        {
+          "line_no": 28,
+          "kind": "leaked",
+          "detail": "CARD '4242 4242 4242 4242'"
+        },
+        {
+          "line_no": 29,
+          "kind": "partial",
+          "detail": "CARD '5105-1051-0510-5100'"
+        },
+        {
+          "line_no": 30,
+          "kind": "leaked",
+          "detail": "CARD '378282246310005'"
+        },
+        {
+          "line_no": 32,
+          "kind": "partial",
+          "detail": "ADDRESS '500 Commerce Blvd, Suite B'"
+        },
+        {
+          "line_no": 34,
+          "kind": "partial",
+          "detail": "ADDRESS '2200 Wilson Blvd, Suite 102'"
+        },
+        {
+          "line_no": 37,
+          "kind": "leaked",
+          "detail": "ADDRESS '47 St. Marks Place'"
+        },
+        {
+          "line_no": 38,
+          "kind": "partial",
+          "detail": "ADDRESS '66 Garden Way, Unit 4'"
+        },
+        {
+          "line_no": 41,
+          "kind": "leaked",
+          "detail": "PHONE '(555) 555-0199'"
+        },
+        {
+          "line_no": 41,
+          "kind": "leaked",
+          "detail": "CARD '4000 0566 5566 5556'"
+        },
+        {
+          "line_no": 42,
+          "kind": "false_positive",
+          "detail": "'5 years developing Python appl'"
+        },
+        {
+          "line_no": 44,
+          "kind": "false_positive",
+          "detail": "'3 dogs that love to run in the park'"
+        },
+        {
+          "line_no": 45,
+          "kind": "false_positive",
+          "detail": "'6 months on the Way Forward'"
+        },
+        {
+          "line_no": 46,
+          "kind": "false_positive",
+          "detail": "'10 milestones on the Park Avenue redesign project'"
+        },
+        {
+          "line_no": 47,
+          "kind": "false_positive",
+          "detail": "'2 workshops at the Point'"
+        },
+        {
+          "line_no": 48,
+          "kind": "false_positive",
+          "detail": "'7 items in the Court'"
+        },
+        {
+          "line_no": 55,
+          "kind": "false_positive",
+          "detail": "'3456 on the router'"
+        },
+        {
+          "line_no": 56,
+          "kind": "false_positive",
+          "detail": "'200 appl'"
+        }
+      ]
+    },
+    "pr98": {
+      "recall": 0.7209302325581395,
+      "precision": 0.8636363636363636,
+      "f1": 0.7858572381587724,
+      "clean_rate": 0.7692307692307693,
+      "by_type": {
+        "EMAIL": {
+          "gold": 6,
+          "protected": 6,
+          "partial": 0,
+          "leaked": 0
+        },
+        "PHONE": {
+          "gold": 20,
+          "protected": 16,
+          "partial": 4,
+          "leaked": 0
+        },
+        "SSN": {
+          "gold": 3,
+          "protected": 3,
+          "partial": 0,
+          "leaked": 0
+        },
+        "CARD": {
+          "gold": 4,
+          "protected": 0,
+          "partial": 0,
+          "leaked": 4
+        },
+        "ADDRESS": {
+          "gold": 10,
+          "protected": 6,
+          "partial": 3,
+          "leaked": 1
+        }
+      },
+      "negatives": 26,
+      "negatives_clean": 20,
+      "failures": [
+        {
+          "line_no": 18,
+          "kind": "partial",
+          "detail": "PHONE '+44 20 7946 0958'"
+        },
+        {
+          "line_no": 19,
+          "kind": "partial",
+          "detail": "PHONE '+81 3-1234-5678'"
+        },
+        {
+          "line_no": 20,
+          "kind": "partial",
+          "detail": "PHONE '+52 55 1234 5678'"
+        },
+        {
+          "line_no": 21,
+          "kind": "partial",
+          "detail": "PHONE '+234 1 555 0100'"
+        },
+        {
+          "line_no": 28,
+          "kind": "leaked",
+          "detail": "CARD '4242 4242 4242 4242'"
+        },
+        {
+          "line_no": 29,
+          "kind": "leaked",
+          "detail": "CARD '5105-1051-0510-5100'"
+        },
+        {
+          "line_no": 30,
+          "kind": "leaked",
+          "detail": "CARD '378282246310005'"
+        },
+        {
+          "line_no": 32,
+          "kind": "partial",
+          "detail": "ADDRESS '500 Commerce Blvd, Suite B'"
+        },
+        {
+          "line_no": 34,
+          "kind": "partial",
+          "detail": "ADDRESS '2200 Wilson Blvd, Suite 102'"
+        },
+        {
+          "line_no": 37,
+          "kind": "leaked",
+          "detail": "ADDRESS '47 St. Marks Place'"
+        },
+        {
+          "line_no": 38,
+          "kind": "partial",
+          "detail": "ADDRESS '66 Garden Way, Unit 4'"
+        },
+        {
+          "line_no": 41,
+          "kind": "leaked",
+          "detail": "CARD '4000 0566 5566 5556'"
+        },
+        {
+          "line_no": 44,
+          "kind": "false_positive",
+          "detail": "'3 dogs that love to run in the park'"
+        },
+        {
+          "line_no": 45,
+          "kind": "false_positive",
+          "detail": "'6 months on the Way'"
+        },
+        {
+          "line_no": 46,
+          "kind": "false_positive",
+          "detail": "'10 milestones on the Park Avenue'"
+        },
+        {
+          "line_no": 47,
+          "kind": "false_positive",
+          "detail": "'2 workshops at the Point'"
+        },
+        {
+          "line_no": 48,
+          "kind": "false_positive",
+          "detail": "'7 items in the Court'"
+        },
+        {
+          "line_no": 58,
+          "kind": "false_positive",
+          "detail": "'100 200 3000'"
+        }
+      ]
+    },
+    "v2": {
+      "recall": 1.0,
+      "precision": 1.0,
+      "f1": 1.0,
+      "clean_rate": 1.0,
+      "by_type": {
+        "EMAIL": {
+          "gold": 6,
+          "protected": 6,
+          "partial": 0,
+          "leaked": 0
+        },
+        "PHONE": {
+          "gold": 20,
+          "protected": 20,
+          "partial": 0,
+          "leaked": 0
+        },
+        "SSN": {
+          "gold": 3,
+          "protected": 3,
+          "partial": 0,
+          "leaked": 0
+        },
+        "CARD": {
+          "gold": 4,
+          "protected": 4,
+          "partial": 0,
+          "leaked": 0
+        },
+        "ADDRESS": {
+          "gold": 10,
+          "protected": 10,
+          "partial": 0,
+          "leaked": 0
+        }
+      },
+      "negatives": 26,
+      "negatives_clean": 26,
+      "failures": []
+    }
+  },
+  "limits": {
+    "original": {
+      "recall": 0.16666666666666666,
+      "precision": 0.3333333333333333,
+      "f1": 0.2222222222222222,
+      "clean_rate": 0.0,
+      "by_type": {
+        "EMAIL": {
+          "gold": 1,
+          "protected": 0,
+          "partial": 0,
+          "leaked": 1
+        },
+        "PHONE": {
+          "gold": 2,
+          "protected": 0,
+          "partial": 0,
+          "leaked": 2
+        },
+        "SSN": {
+          "gold": 1,
+          "protected": 0,
+          "partial": 0,
+          "leaked": 1
+        },
+        "CARD": {
+          "gold": 0,
+          "protected": 0,
+          "partial": 0,
+          "leaked": 0
+        },
+        "ADDRESS": {
+          "gold": 2,
+          "protected": 1,
+          "partial": 0,
+          "leaked": 1
+        }
+      },
+      "negatives": 2,
+      "negatives_clean": 0,
+      "failures": [
+        {
+          "line_no": 5,
+          "kind": "leaked",
+          "detail": "PHONE '555  123  4567'"
+        },
+        {
+          "line_no": 6,
+          "kind": "leaked",
+          "detail": "PHONE '555-0199'"
+        },
+        {
+          "line_no": 7,
+          "kind": "leaked",
+          "detail": "EMAIL 'jo [at] example [dot] com'"
+        },
+        {
+          "line_no": 8,
+          "kind": "leaked",
+          "detail": "SSN '123456789'"
+        },
+        {
+          "line_no": 10,
+          "kind": "leaked",
+          "detail": "ADDRESS 'PO Box 4521'"
+        },
+        {
+          "line_no": 11,
+          "kind": "false_positive",
+          "detail": "'3000 request'"
+        },
+        {
+          "line_no": 12,
+          "kind": "false_positive",
+          "detail": "'12 Product Launches Way'"
+        }
+      ]
+    },
+    "pr98": {
+      "recall": 0.16666666666666666,
+      "precision": 0.3333333333333333,
+      "f1": 0.2222222222222222,
+      "clean_rate": 0.0,
+      "by_type": {
+        "EMAIL": {
+          "gold": 1,
+          "protected": 0,
+          "partial": 0,
+          "leaked": 1
+        },
+        "PHONE": {
+          "gold": 2,
+          "protected": 0,
+          "partial": 0,
+          "leaked": 2
+        },
+        "SSN": {
+          "gold": 1,
+          "protected": 0,
+          "partial": 0,
+          "leaked": 1
+        },
+        "CARD": {
+          "gold": 0,
+          "protected": 0,
+          "partial": 0,
+          "leaked": 0
+        },
+        "ADDRESS": {
+          "gold": 2,
+          "protected": 1,
+          "partial": 0,
+          "leaked": 1
+        }
+      },
+      "negatives": 2,
+      "negatives_clean": 0,
+      "failures": [
+        {
+          "line_no": 5,
+          "kind": "leaked",
+          "detail": "PHONE '555  123  4567'"
+        },
+        {
+          "line_no": 6,
+          "kind": "leaked",
+          "detail": "PHONE '555-0199'"
+        },
+        {
+          "line_no": 7,
+          "kind": "leaked",
+          "detail": "EMAIL 'jo [at] example [dot] com'"
+        },
+        {
+          "line_no": 8,
+          "kind": "leaked",
+          "detail": "SSN '123456789'"
+        },
+        {
+          "line_no": 10,
+          "kind": "leaked",
+          "detail": "ADDRESS 'PO Box 4521'"
+        },
+        {
+          "line_no": 11,
+          "kind": "false_positive",
+          "detail": "'500 200 3000'"
+        },
+        {
+          "line_no": 12,
+          "kind": "false_positive",
+          "detail": "'12 Product Launches Way'"
+        }
+      ]
+    },
+    "v2": {
+      "recall": 0.0,
+      "precision": 0.0,
+      "f1": 0.0,
+      "clean_rate": 0.0,
+      "by_type": {
+        "EMAIL": {
+          "gold": 1,
+          "protected": 0,
+          "partial": 0,
+          "leaked": 1
+        },
+        "PHONE": {
+          "gold": 2,
+          "protected": 0,
+          "partial": 0,
+          "leaked": 2
+        },
+        "SSN": {
+          "gold": 1,
+          "protected": 0,
+          "partial": 0,
+          "leaked": 1
+        },
+        "CARD": {
+          "gold": 0,
+          "protected": 0,
+          "partial": 0,
+          "leaked": 0
+        },
+        "ADDRESS": {
+          "gold": 2,
+          "protected": 0,
+          "partial": 0,
+          "leaked": 2
+        }
+      },
+      "negatives": 2,
+      "negatives_clean": 0,
+      "failures": [
+        {
+          "line_no": 5,
+          "kind": "leaked",
+          "detail": "PHONE '555  123  4567'"
+        },
+        {
+          "line_no": 6,
+          "kind": "leaked",
+          "detail": "PHONE '555-0199'"
+        },
+        {
+          "line_no": 7,
+          "kind": "leaked",
+          "detail": "EMAIL 'jo [at] example [dot] com'"
+        },
+        {
+          "line_no": 8,
+          "kind": "leaked",
+          "detail": "SSN '123456789'"
+        },
+        {
+          "line_no": 9,
+          "kind": "leaked",
+          "detail": "ADDRESS '123 main st'"
+        },
+        {
+          "line_no": 10,
+          "kind": "leaked",
+          "detail": "ADDRESS 'PO Box 4521'"
+        },
+        {
+          "line_no": 11,
+          "kind": "false_positive",
+          "detail": "'500 200 3000'"
+        },
+        {
+          "line_no": 12,
+          "kind": "false_positive",
+          "detail": "'12 Product Launches Way'"
+        }
+      ]
+    }
+  }
+}
