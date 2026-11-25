@@ -1,0 +1,12 @@
+# KNOWN LIMITATIONS. Cases v2 is known to get wrong, kept so the report shows them
+# instead of hiding them. Not used for tuning and not part of the headline numbers.
+# Same markup as the other splits.
+
+Call {{PHONE|555  123  4567}} tonight (two spaces between groups).
+Phone {{PHONE|555-0199}} is a 7-digit local number.
+Write to {{EMAIL|jo [at] example [dot] com}} (obfuscated email).
+SSN {{SSN|123456789}} without dashes.
+Mail to {{ADDRESS|123 main st}} in lowercase.
+{{ADDRESS|PO Box 4521}}, Dover, DE 19901
+Handled 500 200 3000 requests per second.
+Shipped 12 Product Launches Way ahead of schedule.

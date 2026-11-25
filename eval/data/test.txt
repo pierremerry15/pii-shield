@@ -1,0 +1,74 @@
+# HELD-OUT TEST SPLIT. Written before any v2 code existed and frozen by hash in
+# eval/data/FROZEN.md. Do not tune patterns against these lines.
+#
+# Markup: {{TYPE|value}} marks a gold PII span. TYPE is one of
+# EMAIL, PHONE, SSN, CARD, ADDRESS. A literal "\n" inside a line is a line break.
+# Lines with no markup are negatives: nothing in them should be redacted.
+# Every number, card and address below is fictional (555 numbers, example.* domains,
+# published card-network test numbers).
+
+Reach me at {{PHONE|(555) 201-3344}} or {{EMAIL|j.rivera@example.com}}.
+Cell: {{PHONE|555.867.5309}}
+Phone {{PHONE|+1 (555) 410-2288}} (evenings only)
+Contact: {{PHONE|555 777 1212}}
+My number is {{PHONE|(555)640-1122}}, text first.
+Office {{PHONE|1-555-300-4000}}, mobile {{PHONE|555-300-4001}}.
+London office: {{PHONE|+44 20 7946 0123}}
+Paris: {{PHONE|+33 1 42 68 53 00}}
+Call our Berlin team on {{PHONE|+49 30 901820}} during CET hours.
+India support line {{PHONE|+91 98765 43210}}.
+WhatsApp {{PHONE|+234 803 555 0199}}
+{{PHONE|+1 555 222 9090}} is my direct line.
+Email {{EMAIL|maria_lopez+jobs@mail.example.org}} for references.
+Send it to {{EMAIL|DEV.TEAM@EXAMPLE.CO.UK}}.
+({{EMAIL|a.b@example.io}})
+Portfolio and email: {{EMAIL|kwame@studio.example}}, github.com/kwame
+SSN: {{SSN|219-09-9999}}
+Please verify SSN {{SSN|457-55-5462}} before onboarding.
+Visa {{CARD|4111 1111 1111 1111}} exp 09/28
+Charge card {{CARD|5555-5555-5555-4444}} for the deposit.
+Amex {{CARD|3782 822463 10005}} on file.
+Card number {{CARD|6011111111111117}}
+Ship to {{ADDRESS|1600 Pennsylvania Avenue NW}}, Washington, DC 20500.
+I live at {{ADDRESS|42 Elm Rd}} in Silver Spring.
+Mailing address: {{ADDRESS|2400 Sixth St NW}}, Washington, DC 20059
+Office at {{ADDRESS|350 Fifth Avenue, Suite 4200}}, New York.
+Return to {{ADDRESS|77 Massachusetts Ave}}, Cambridge, MA.
+Our studio moved to {{ADDRESS|12 Fox Hollow Lane}} last spring.
+Deliver to {{ADDRESS|9 W 42nd St}} by noon.
+{{ADDRESS|501 Howard Pl}} is the closest dorm to the library.
+Ask for apartment {{ADDRESS|88 Oak Court, Apt 3B}}.
+Line 1\n{{ADDRESS|155 Georgia Ave}}\nLine 3
+Contact {{EMAIL|lee@example.net}} or {{PHONE|(555) 908-1100}}; SSN {{SSN|078-05-1120}}.
+Name: Ana Diaz | {{PHONE|555-123-9876}} | {{EMAIL|ana.diaz@example.com}} | {{ADDRESS|300 College St}}
+Applicant SSN {{SSN|536-90-4399}}, card {{CARD|4012 8888 8888 1881}}.
+Managed 12 engineers on the Way of Code project.
+Ran 5 marathons and like to run on weekends.
+Led 3 teams that ship a park view feature for maps.
+Shipped 2 features to the Court reporting tool.
+I have 4 years of experience on the Drive sync team.
+Trained 30 interns at the Point of Sale group.
+Mentored 8 students in the Summit leadership program.
+Built 3 dashboards for the Plaza retail analytics team.
+Released on 2026-11-11 after a two-week beta.
+Our ZIP is 20059-1234 for campus mail.
+Version 1.12.3 fixed the memory leak.
+Order ID 48213907615523 shipped Tuesday.
+Tracking number 9400 1000 0000 0000 0000 00 is pending.
+Invoice 4111 1111 1111 1112 was voided.
+Reduced latency from 450 ms to 120 ms across 3 regions.
+Scored 1480 on the SAT and 34 on the ACT.
+Grew revenue 25% year over year to $3.2M.
+Handled 100 200 3000 requests per second at peak, depending on the tier.
+Python 3.11, Node 20, Postgres 16.
+Published in Vol. 12, No. 4, pp. 155-170.
+Room 555\n123 4567 is the badge range.
+Team of 7, budget $450,000, timeline 18 months.
+Coordinates 38.9227, -77.0194 mark the campus.
+Ticket JIRA-5532 and PR #98 are linked.
+ISBN 978-0-306-40615-7 is on the syllabus.
+Call extension 4567 for the help desk.
+GPA 3.8/4.0, Dean's List 2023-2025.
+Section 555 of the handbook covers parking.
+In 2019 I moved 3 times for work.
+Worked at 1 Infinite Loop Ventures as an intern.

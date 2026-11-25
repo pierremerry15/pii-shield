@@ -1,0 +1,67 @@
+# DEVELOPMENT SPLIT. Patterns may be tuned against these lines.
+# Same markup as test.txt: {{TYPE|value}}, TYPE in EMAIL, PHONE, SSN, CARD, ADDRESS.
+# "\n" inside a line is a line break. Lines without markup are negatives.
+# All values are fictional (555 numbers, example.* domains, card-network test numbers).
+
+Call me at {{PHONE|(555) 123-4567}} or {{PHONE|555-123-4567}}.
+{{PHONE|555-123-4567}}
+{{PHONE|555.123.4567}}
+{{PHONE|5551234567}}
+{{PHONE|1-555-123-4567}}
+{{PHONE|+1 555 123 4567}}
+{{PHONE|+1 (555) 123-4567}}
+{{PHONE|555 123 4567}}
+{{PHONE|(555)123-4567}}
+(call {{PHONE|(555) 123-4567}})
+Phone:{{PHONE|(555) 123-4567}},
+Cell {{PHONE|(555) 123-4567}}, office {{PHONE|+1 555 987 6543}}.
+London: {{PHONE|+44 20 7946 0958}}
+Tokyo office {{PHONE|+81 3-1234-5678}}
+Mexico City: {{PHONE|+52 55 1234 5678}}
+Lagos {{PHONE|+234 1 555 0100}}
+Email me at {{EMAIL|john.doe@example.com}} anytime.
+{{EMAIL|first.last+tag@sub.example.org}}
+Write to {{EMAIL|HR@EXAMPLE.COM}}.
+<{{EMAIL|team@example.dev}}>
+SSN {{SSN|123-45-6789}}
+Social security number: {{SSN|321-54-9876}}.
+Card {{CARD|4242 4242 4242 4242}} exp 12/27
+Use {{CARD|5105-1051-0510-5100}} for the test order.
+{{CARD|378282246310005}} is the Amex on file.
+Address: {{ADDRESS|123 Main Street}}, Springfield
+Office at {{ADDRESS|500 Commerce Blvd, Suite B}}.
+Moved to {{ADDRESS|17 N Lake Shore Dr}} in March.
+{{ADDRESS|2200 Wilson Blvd, Suite 102}} Arlington VA
+Pick up at {{ADDRESS|8 Harbor View Ter}}.
+I lived at {{ADDRESS|1010 Kirkwood Pl}} for two years.
+Send mail to {{ADDRESS|47 St. Marks Place}}.
+Unit {{ADDRESS|66 Garden Way, Unit 4}} has the keys.
+Header\n{{ADDRESS|10 Downing St}}\nFooter
+Contact {{EMAIL|jane@example.com}}, SSN {{SSN|123-45-6789}}, phone {{PHONE|555-123-4567}}, home {{ADDRESS|123 Main St}}.
+Mixed: {{PHONE|(555) 555-0199}} / {{EMAIL|x@example.com}} / {{CARD|4000 0566 5566 5556}}
+Experienced developer with 5 years developing Python applications.
+Built 4 platforms for Fortune 500 clients.
+I have 3 dogs that love to run in the park.
+Spent 6 months on the Way Forward initiative.
+We hit 10 milestones on the Park Avenue redesign project.
+Led 2 workshops at the Point Foundation.
+Listed 7 items in the Court docket summary.
+Released 2026-11-11 to all users.
+ZIP+4 20059-1234
+Account ID 12345678901234
+Version 1.2.3
+Local extension 555-1234
+Order 4242 4242 4242 4241 was refunded.
+Serial 1234 5678 9012 3456 on the router label.
+Ranked top 5 of 200 applicants.
+Increased throughput by 300% with 2 caching layers.
+listed 100 200 3000 items in the catalog
+Room 555\n123 4567
+Call 555  123  4567 (double spaced)
+Booth 12, Hall 3, Level 2.
+Paper DOI 10.1145/3368089.3409741
+Section 4.2.1 discusses retries.
+Scored 98/100 on the final.
+Joined in 2021, promoted in 2023.
+Lat 40.7128, Lon -74.0060
+Sprint 23 closed 41 tickets.
