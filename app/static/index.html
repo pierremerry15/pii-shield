@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PII Shield</title>
+<style>
+  :root {
+    --bg: #f6f7f9; --card: #ffffff; --ink: #17202a; --muted: #5d6b7a; --line: #e2e6eb;
+    --accent: #1f6feb; --ok: #1f9d6b; --warn: #b54708;
+    --EMAIL: #dbeafe; --EMAIL-b: #2563eb;
+    --PHONE: #dcfce7; --PHONE-b: #16a34a;
+    --SSN: #fee2e2; --SSN-b: #dc2626;
+    --CARD: #fef3c7; --CARD-b: #d97706;
+    --ADDRESS: #ede9fe; --ADDRESS-b: #7c3aed;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink);
+         font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  header { background: #0f172a; color: #fff; padding: 22px 32px; }
+  header h1 { margin: 0; font-size: 22px; letter-spacing: -0.01em; }
+  header p { margin: 4px 0 0; color: #cbd5e1; font-size: 14px; }
+  main { max-width: 1180px; margin: 0 auto; padding: 24px 32px 48px; display: grid; gap: 20px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px; }
+  .card h2 { margin: 0 0 4px; font-size: 16px; }
+  .card .sub { margin: 0 0 14px; color: var(--muted); font-size: 13px; }
+  textarea, input[type=text] { width: 100%; border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px;
+           font: 14px/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color: var(--ink); background: #fbfcfd; }
+  textarea { min-height: 130px; resize: vertical; }
+  .row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-top: 10px; }
+  button { border: 1px solid var(--line); background: #fff; border-radius: 999px; padding: 6px 14px; font: inherit;
+           font-size: 13px; cursor: pointer; color: var(--ink); }
+  button:hover { border-color: #b8c1cc; }
+  button.primary { background: var(--accent); color: #fff; border-color: var(--accent); border-radius: 8px; padding: 8px 16px; }
+  .legend { display: flex; gap: 14px; flex-wrap: wrap; font-size: 12px; color: var(--muted); }
+  .legend span::before { content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 3px;
+                         margin-right: 5px; vertical-align: -1px; background: var(--c); border: 1px solid var(--cb); }
+  .hl { white-space: pre-wrap; font: 14px/1.7 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        background: #fbfcfd; border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; min-height: 48px; }
+  mark { border-radius: 4px; padding: 1px 2px; border-bottom: 2px solid; }
+  .tok { background: #e5e7eb; border-radius: 4px; padding: 0 3px; color: #374151; }
+  .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .col h3 { margin: 0 0 6px; font-size: 13px; display: flex; justify-content: space-between; }
+  .col h3 .n { color: var(--muted); font-weight: 400; }
+  .col.best h3 { color: var(--ok); }
+  .banner { font-size: 13px; padding: 8px 12px; border-radius: 8px; background: #fff7ed; color: var(--warn);
+            border: 1px solid #fed7aa; margin-bottom: 12px; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { padding: 7px 10px; border-bottom: 1px solid var(--line); text-align: right; }
+  th:first-child, td:first-child { text-align: left; }
+  thead th { font-size: 12px; color: var(--muted); font-weight: 600; }
+  td.win { color: var(--ok); font-weight: 600; }
+  .chart { width: 100%; max-width: 760px; display: block; margin: 14px auto 0; }
+  .muted { color: var(--muted); font-size: 13px; }
+  @media (max-width: 860px) { .grid3, .grid2 { grid-template-columns: 1fr; } main { padding: 16px; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>PII Shield</h1>
+  <p>An extension of PathReview's PII scrubber: better detection, an evaluation harness, and a safe LLM round trip.</p>
+</header>
+<main>
+  <section class="card">
+    <h2>1. Paste text</h2>
+    <p class="sub">Resume lines, cover letters, chat messages. Nothing is stored.</p>
+    <textarea id="text" spellcheck="false"></textarea>
+    <div class="row" id="samples"><span class="muted">Try a sample:</span></div>
+    <div class="row"><button class="primary" id="scanBtn">Scan</button></div>
+  </section>
+
+  <section class="card">
+    <h2>2. What PII Shield v2 found</h2>
+    <div class="legend">
+      <span style="--c:var(--EMAIL);--cb:var(--EMAIL-b)">Email</span>
+      <span style="--c:var(--PHONE);--cb:var(--PHONE-b)">Phone</span>
+      <span style="--c:var(--SSN);--cb:var(--SSN-b)">SSN</span>
+      <span style="--c:var(--CARD);--cb:var(--CARD-b)">Card</span>
+      <span style="--c:var(--ADDRESS);--cb:var(--ADDRESS-b)">Address</span>
+    </div>
+    <div class="hl" id="highlight" style="margin-top:10px"></div>
+  </section>
+
+  <section class="card">
+    <h2>3. Same text, three scrubbers</h2>
+    <p class="sub">PathReview's original scrubber, PathReview with PR #98 (my Module 3 fix), and v2.</p>
+    <div class="grid3">
+      <div class="col"><h3>PathReview original <span class="n" id="n-original"></span></h3><div class="hl" id="out-original"></div></div>
+      <div class="col"><h3>PathReview + PR #98 <span class="n" id="n-pr98"></span></h3><div class="hl" id="out-pr98"></div></div>
+      <div class="col best"><h3>PII Shield v2 <span class="n" id="n-v2"></span></h3><div class="hl" id="out-v2"></div></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>4. Ask Claude without sending the PII</h2>
+    <p class="sub">The text is scrubbed into numbered placeholders, sent to the model, and the real values are put back into the reply.</p>
+    <div id="llmBanner" class="banner" hidden></div>
+    <input type="text" id="instruction" value="Rewrite this as a two-sentence professional summary. Include how to contact the person.">
+    <div class="row"><button class="primary" id="llmBtn">Send safely</button></div>
+    <div class="grid2" style="margin-top:14px">
+      <div class="col"><h3>What the model sees</h3><div class="hl" id="llmPrompt"></div></div>
+      <div class="col"><h3>Reply, with real values restored</h3><div class="hl" id="llmReply"><span class="muted">Not sent yet.</span></div></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>5. Evaluation on the held-out test split</h2>
+    <p class="sub">From <code>python -m eval.run_eval</code>. Full per-line results are in <code>eval/RESULTS.md</code>.</p>
+    <div id="evalTable"></div>
+    <img class="chart" src="/docs-assets/eval_chart.png" alt="Bar chart of recall, precision and clean-negative rate for the three scrubbers">
+  </section>
+</main>
+
+<script>
+const $ = (id) => document.getElementById(id);
+const esc = (s) => s.replace(/[&<>"]/g, (c) => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+function highlight(text, dets) {
+  let html = "", pos = 0;
+  for (const d of [...dets].sort((a, b) => a.start - b.start)) {
+    if (d.start < pos) continue;
+    html += esc(text.slice(pos, d.start));
+    html += `<mark title="${d.type}" style="background:var(--${d.type});border-color:var(--${d.type}-b)">${esc(text.slice(d.start, d.end))}</mark>`;
+    pos = d.end;
+  }
+  return html + esc(text.slice(pos));
+}
+const tokens = (s) => esc(s).replace(/\[(REDACTED|(?:EMAIL|PHONE|SSN|CARD|ADDRESS)_\d+)\]/g, '<span class="tok">[$1]</span>');
+
+async function post(url, body) {
+  const r = await fetch(url, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
+  const j = await r.json();
+  if (!r.ok) throw new Error(j.detail || r.statusText);
+  return j;
+}
+
+async function scan() {
+  const text = $("text").value;
+  const res = await post("/api/scan", { text });
+  $("highlight").innerHTML = highlight(text, res.v2.detections) || '<span class="muted">Nothing to show.</span>';
+  for (const k of ["original", "pr98", "v2"]) {
+    $("out-" + k).innerHTML = tokens(res[k].scrubbed);
+    const n = (res[k].scrubbed.match(/\[REDACTED\]/g) || []).length;
+    $("n-" + k).textContent = `${n} redaction${n === 1 ? "" : "s"}`;
+  }
+  $("llmPrompt").innerHTML = tokens(res.v2.typed);
+}
+
+async function sendLLM() {
+  $("llmReply").innerHTML = '<span class="muted">Working…</span>';
+  try {
+    const res = await post("/api/llm", { text: $("text").value, instruction: $("instruction").value });
+    $("llmPrompt").innerHTML = tokens(res.prompt);
+    if (res.dry_run) {
+      $("llmReply").innerHTML = '<span class="muted">Dry run: no ANTHROPIC_API_KEY is set, so nothing was sent. The left panel is exactly what would be sent.</span>';
+    } else {
+      $("llmReply").textContent = res.reply;
+    }
+  } catch (e) {
+    $("llmReply").textContent = String(e.message || e);
+  }
+}
+
+async function loadEval() {
+  try {
+    const r = await fetch("/api/eval"); if (!r.ok) throw 0;
+    const t = (await r.json()).test;
+    const names = { original: "PathReview original", pr98: "PathReview + PR #98", v2: "PII Shield v2" };
+    const rows = [["Recall (PII fully hidden)", "recall"], ["Precision", "precision"], ["Clean negatives", "clean_rate"], ["F1", "f1"]];
+    let h = "<table><thead><tr><th>Metric</th>" + Object.values(names).map((n) => `<th>${n}</th>`).join("") + "</tr></thead><tbody>";
+    for (const [label, key] of rows) {
+      const vals = Object.keys(names).map((k) => t[k][key]);
+      const best = Math.max(...vals);
+      h += `<tr><td>${label}</td>` + vals.map((v) => `<td class="${v === best ? "win" : ""}">${key === "f1" ? v.toFixed(2) : Math.round(v * 100) + "%"}</td>`).join("") + "</tr>";
+    }
+    $("evalTable").innerHTML = h + "</tbody></table>";
+  } catch { $("evalTable").innerHTML = '<p class="muted">Run <code>python -m eval.run_eval --chart</code> to generate results.</p>'; }
+}
+
+(async () => {
+  const samples = await (await fetch("/api/samples")).json();
+  const first = Object.keys(samples)[0];
+  for (const [name, text] of Object.entries(samples)) {
+    const b = document.createElement("button"); b.textContent = name;
+    b.onclick = () => { $("text").value = text; scan(); };
+    $("samples").appendChild(b);
+  }
+  $("text").value = samples[first];
+  const health = await (await fetch("/api/health")).json();
+  if (!health.llm_enabled) {
+    $("llmBanner").hidden = false;
+    $("llmBanner").textContent = "No ANTHROPIC_API_KEY set: \"Send safely\" runs as a dry run and shows the exact prompt instead of calling the model.";
+  }
+  $("scanBtn").onclick = scan; $("llmBtn").onclick = sendLLM;
+  scan(); loadEval();
+})();
+</script>
+</body>
+</html>
