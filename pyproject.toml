@@ -1,0 +1,30 @@
+[project]
+name = "pii-shield"
+version = "2.0.0"
+description = "Span-based PII scrubber with an evaluation harness and a safe LLM round trip. Extends PathReview's PIIScrubber."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = []
+
+[project.optional-dependencies]
+app = ["fastapi>=0.110", "uvicorn>=0.27", "anthropic>=0.40"]
+dev = ["pytest>=8", "httpx>=0.27", "matplotlib>=3.8", "ruff>=0.5"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+
+[tool.ruff.lint.per-file-ignores]
+# Verbatim copies of PathReview's regexes; keep them byte-for-byte.
+"baselines/*" = ["E501"]
+
+[tool.ruff.format]
+exclude = ["baselines/*"]
