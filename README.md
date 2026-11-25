@@ -5,7 +5,7 @@
 ([PR #98](https://github.com/codepath/pathreview-ai201-fa26-howard/pull/98)) fixed
 parenthesized US phone numbers.
 
-![Demo: scanning sample text, comparing three scrubbers, and the safe LLM round trip](docs/demo.gif)
+![Same text through three scrubbers: PathReview original, PathReview + PR #98, and PII Shield v2](docs/screenshots/02-three-scrubbers.webp)
 
 ## Why this project
 
@@ -120,31 +120,18 @@ shield.restore("I'll reach out at [EMAIL_1].", r.mapping)
 
 ## Screenshots
 
-**Same text, three scrubbers.** The original leaks `(555) 201-3344`. PR #98 hides it but
-cuts the London number off after `+44` and redacts "12 engineers on the Way". v2 hides
-every PII value and leaves the prose alone.
+**Same text, three scrubbers** (top of this page). The original leaks `(555) 201-3344`.
+PR #98 hides it but cuts the London number off after `+44` and redacts "12 engineers on the
+Way". v2 hides every PII value and leaves the prose alone.
 
-![Three scrubbers side by side](docs/screenshots/02-three-scrubbers.png)
+**The LLM round trip.** The panel below is exactly what the model receives. No phone
+numbers, emails or addresses are in it, only placeholders. This screenshot is a dry run
+(no API key was set).
 
-**What v2 found**, color-coded by type.
+![Safe LLM round trip, dry run](docs/screenshots/05-llm-dry-run.webp)
 
-![Detected PII highlighted by type](docs/screenshots/03-detections.png)
-
-**Prose that only looks like PII.** Both PathReview versions redact parts of these
-sentences. v2 leaves them alone.
-
-![Tricky prose sample](docs/screenshots/04-tricky-prose.png)
-
-**The LLM round trip.** The left panel is exactly what the model receives. No phone
-numbers, emails or addresses are in it. This screenshot is a dry run (no API key).
-
-![Safe LLM round trip, dry run](docs/screenshots/05-llm-dry-run.png)
-
-**Evaluation panel**
-
-![Evaluation results in the app](docs/screenshots/06-evaluation.png)
-
-The full page is in [`docs/screenshots/01-overview.png`](docs/screenshots/01-overview.png).
+The demo app also highlights each detection by type and shows the evaluation table. Run
+it locally (see [How to run it](#how-to-run-it)) to try your own text.
 
 ## How it works
 
@@ -225,7 +212,7 @@ baselines/         PathReview's scrubber before and after PR #98, unmodified
 eval/              dataset parser, metrics, runner, labeled data, generated RESULTS.md
 app/               FastAPI backend + single-page UI (app/static/index.html)
 tests/             72 pytest tests (recognizers, scrubber, LLM with a fake client, eval, API)
-docs/              chart, screenshots, demo GIF
+docs/              evaluation chart and screenshots
 ```
 
 ## Credits
